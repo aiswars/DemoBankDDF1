@@ -1,0 +1,2 @@
+INFO    2022-02-02 16:41:26,652 [main] base.BaseClass  - log file !!!
+INFO    2022-02-02 16:41:26,653 [main] base.BaseClass  - config.properties file loaded !!!

@@ -1,0 +1,425 @@
+1.	Pom.xml dependencies
+2.	Src/tets/java/ testcases, utitlities ,base,  rough, listeners
+3.	Src/test/resources/excel, runner , logs, properties, executables,extentconfig
+4.	Base>BaseClass.java //supr class for al the classes for all the initialization>>
+1.	Webdriver
+2.	Properties
+3.	Logs
+4.	ExtentReports
+5.	DataProvider
+6.	Excel
+7.	Mail
+5.	Also to create SetUp and TearDown methods
+create new> file>> application.log and selenium.log in src/test/resources/logs folder
+  lect5 check the notes on paper for adding config.properties, OR.properties files
+  
+6.in base class add	SetUp >> browser invoking  // properties file reading
+1.	public class TestProperties {
+2.	Getting browser name from config property file
+project home>> System.getProperty("user.dir") 
+	public void tearDown() {	if(driver!=null) {	driver.quit();
+	Convert to testNG to src/test/resources> testng xml file > location src/test/resources
+	//testcases.TC1Login- create a testclass in testcases pkg
+	TC1Login>> 
+	Inspect element>Console>$$ give css syntax
+	TC1Login extends baseclass
+	Run As testngSuite-testng.xml
+	Refresh to get test-output folder(by testng) (target folder will be generated for maven projects which is empty till Run as Maven)
+	
+	logs> log4j jars in pom.xml, application logs -logs userdefined, [selenium logs NO MORE - requests and responses,] log4j properties
+	copy the paths of application and selenium logs and paste that in log4j.properties fiel
+	Logger >>public static Logger log = Logger.getLogger("devpinoyLogger"); //devpinoyLogger standard name for the logger
+	import apache.log4j.Logger;//getLogger method
+	public static Logger log = Logger.get.....>>select getLogger method of Apachelog4j import apache.log4j.Logger;//getLogger method
+	Add logs>> log.debug("Config file loaded !!!");
+    Run As testngSuite-testng.xml
+	Refresh  application and selenium logs--?? no logs
+	
+	ADD>> logger object- Logger class & PropertyConfigurator/DOMCOnfigurator
+	logger = Logger.getLogger("ebanking");
+	PropertyConfigurator.configure("Log4j.properties");//in setUp()
+	STILL No LOGS-?? no logs
+	
+	Selenium logs will not work form Sele3 onwards
+	
+	Apache Log4J
+log4j.api	 in pom.xml
+log4j-core	
+Log4j.property file OR 
+Log4j.xml file	 Project Home path
+logger object- Logger class & PropertyConfigurator/DOMCOnfigurator	 BaseClass.jav
+log info messages	in TestCase classes 
+	Log4j.property file>>Appender.File- ${current.date}_path - to get new logs instead of updating on same logs
+	PropertyCOnfigurator.configure("./src/test/resources/properties/log4j.properties"); lecture 27
+
+Log properties file to utilities
+in log.properties file > give the path of logs - appenderfile
+Append == false >> logs will not be appended-it will be overridden
+Looger class in base class>> import GetLogger method(not class) from apache
+devpinoyLogger - standard name for the logger
+add logs
+
+
+	import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
+	
+	//worked 
+	<!-- https://mvnrepository.com/artifact/log4j/log4j -->
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.17</version>
+		</dependency>
+
+		<!--link: https://logging.apache.org/log4j/2.x/maven-artifacts.html -->
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-api</artifactId>
+			<version>2.14.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-core</artifactId>
+			<version>2.14.1</version>
+		</dependency>
+	
+	
+	
+	
+adding assertions Assertions
+	after managerlogin check the presence of add custbutton and other 2 buttons >> iselement
+	isElementPresent(By by) { in base class
+	use it in other testclasses - TC!Login
+	
+
+L8>> If no java doc defnition of any library try getting its depenedency to pom.xml aftert removing the java build path
+eg.TestNG
+(through maven actually gets the documentation as well.)
+if still it not showing the java doc then go to Buldpath>configure buld path> maven dependency> select the api - eg testng > select java documentation>
+clcik Edit> 
+go to the testng org website> java doc link > copy the link till index.html and paste it in the Edit- above
+do this for any other library!!!
+	
+	
+	TC1Login name changed to TC1BankManagerLogin.java - change it in testng.xml file too
+	Add new test case in tescases pkg>> TC2AddCustomer
+	
+DataProvider
+Excel utility -excelreader to utitlity folder
+excel file - give the classname to sheetname- to get sheetname and classname same
+dependency fot poi - poi, poi ooxml, dom4j, xml beans, poi-ooxml-schemas
+
+	Use Dataprovider
+	and get data from excel sheet >>excelreader.java file in utitlities
+	poi jars, poi ooxml, xml beans, dom4j
+	
+excel file reader utility file intilization in base class
+	excel utitlity ExcelReader.java file>> object creation in baseclass   public static ExcelReader excel = new ExcelReader(the path of the testdata file as parameter -constructor);
+	ExcelReader.java file //import from utitlities package
+	public class TC2AddCustomer extends BaseClass {
+	get the logic to work with the data read from testdata.xls
+	"TC2addCustomer - excel sheetname same as Classname"
+	add element locators ...driver.find..click...as per the application add cutomer>>fname,laname, postcode
+	Also add a cloumn in testdata.xls/ for the alert box - after adding a customer
+	
+	
+	explicit wait until alert is present declaration in base class and usage in testclass
+	wait = new WebDriverWait(driver,5);//explicitwait
+	//code for alert in TC2AddCustomer
+	Run As testngSuite-testng.xml
+	some error in col num in excel reading
+	
+
+ReportNG >>reportng jars, google juice jars in pom.xml
+class needs to be invoked through restng listeners
+so add <listeners> tag in testng xml file-only step for reportng
+htmlreporter for html report - after execution -check for html folder- index.html-lec10-can customize this html-logs>>  ReportNG -Reporter.log(..........,html,screenshots,links,..
+junitxmlreporter for xml report
+htmlreport>> plain text>>to view as html set a flag reportng.escape-output to false
+		ReportNG - testNG report only - to get this there is a class that gets invoked only through listeners. so give that listeners in tetsng xml file
+	Add ReportNG dependencies
+	Add required Listeners name in <listners> tag in testng.xml file
+	<listeners>
+      <listener class-name="org.uncommons.reportng.HTMLReporter"/>
+      <listener class-name="org.uncommons.reportng.JUnitXMLReporter"/>
+                                             /// <listener class-name="com.w2a.listeners.CustomListeners"/>
+  </listeners>
+  Run As testngSuite-testng.xml
+		HTMLReporter> test-output> html>index.html
+	
+	can customize the reportNG reports 
+	Reporter.log("Login successfully executed"); //import testng reporter
+	screenshots, links, html view...
+	  Run As testngSuite-testng.xml
+
+	listners.java
+	listners.java <listners> tag in testng.xml file
+	<listener class-name="com.w2a.listeners.CustomListeners"/>
+	cpaturescreenshot in baseclass
+	customize the methods in listneres class
+	  Run As testngSuite-testng.xml
+	  
+	  
+	  before customizing the listeners class execute the project through Mavan lifecycle - clean test
+	  in pom.xml add surefireplugin> in outside dependencies/ <build><plugins>pllugin> to execute as maven test based on testng xml - the sequence 
+	  if no surefireplugin in testngxml file maven execure the tests with 'test' as suffix/prefix in the name no sequenece
+	  check notes
+	  mvn clean delete the target folder itself
+	  repeorts will be in target>surefirerepeorts>index.html (same as testng test-output/html/index.html reports this is also by testng  but the execution is through maven so in surefirereports)
+	mvn test>> error - Source option 5 is no longer supported. Use 7 or later.
+[ERROR] Target option 5 is no longer supported. Use 7 or later.
+add the below properties in pom.xml file add this outside your <dependencies> tag:
+</properties>
+	 <properties>
+     <maven.compiler.source>1.8</maven.compiler.source>
+     <maven.compiler.target>1.8</maven.compiler.target>
+</properties>
+	
+l12
+cpaturescreenshot in TestUtil.java extends base class
+scrrenshots in>> targets/surefirereports/html/...
+in listeneres.java class >> testutil.capturescreenshot();
+Run As Maven
+l14 extent reports
+ extentmangaer.java class file
+configuration fiel -reportsconfig.xml in resources folder	
+	extentmanager.java for the extentreports
+	
+	
+	
+	Run As testngSuite-testng.xml
+	Run As testngSuite-testng.xml
+	Run As testngSuite-testng.xml
+	Run As testngSuite-testng.xml
+	
+	
+	
+	
+	package rough;
+
+
+
+	import java.io.FileInputStream;
+import java.util.Properties;
+
+	import org.openqa.selenium.WebDriver;
+	import org.testng.annotations.BeforeSuite;
+
+	public class BaseTestRough {
+		
+		/*
+		 * We will be initializing the following here
+		 * WebDriver
+		 * Properties
+		 * Logs -log4j jar, .log log4j.properties
+		 * ExtentReports
+		 * DB
+		 * Excel
+		 * Mail
+		 * ReportNG, ExtentReports
+		 * Jenkins
+		 */
+
+		public static WebDriver driver;
+		public static Properties config = new Properties();
+		public static Properties OR = new Properties();
+		public static FileInputStream fis;
+		public static Logger log = Logger.getLogger("devpinoyLogger");
+		public static ExcelReader excel = new ExcelReader(System.getProperty("user.dir") +"/src/test/resources/excel/testdata.xlsx");
+		public static WebDriverWait wait;
+		public static ExtentTest test;
+
+		public static String browser;
+
+
+		@BeforeSuite
+		public void setUp() {
+
+			if(driver==null) {
+
+				try {
+					fis = new FileInputStream(System.getProperty("user.dir") +"/src/test/resources/properties/Config.properties");
+				} catch (FileNotFoundException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				try {
+					config.load(fis);
+					log.debug("Config file loaded !!!");
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+
+				try {
+					fis = new FileInputStream(System.getProperty("user.dir") +"/src/test/resources/properties/OR.properties");
+				} catch (FileNotFoundException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				try {
+					OR.load(fis);
+					log.debug("OR file loaded !!!");
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+
+	           if(System.getenv("browser")!=null && !System.getenv("browser").isEmpty()){
+					browser = System.getenv("browser");
+				}else{
+
+					browser = config.getProperty("browser");
+
+				}
+				config.setProperty("browser", browser);
+
+
+
+				if(config.getProperty("browser").equals("firefox")) {
+
+					WebDriverManager.firefoxdriver().setup();
+					//System.getProperty("webdriver.gecko.driver", System.getProperty("user.dir")+"/src/test/resources/executables/geckodriver");
+					driver = new FirefoxDriver();
+
+
+				}else if(config.getProperty("browser").equals("chrome")) {
+
+					WebDriverManager.chromedriver().setup();
+					//System.getProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"/src/test/resources/executables/chromedriver");
+					driver = new ChromeDriver();
+					log.debug("Chrome Launched !!!");
+
+				}else if(config.getProperty("browser").equals("safari")) {
+
+
+					//System.getProperty("webdriver.safari.driver", System.getProperty("user.dir")+"/src/test/resources/executables/safaridriver");
+					driver = new SafariDriver();
+				}
+
+				driver.get(config.getProperty("testsiteurl"));
+				log.debug("Navigated to : "+config.getProperty("testsiteurl"));
+				driver.manage().window().maximize();
+				driver.manage().timeouts().implicitlyWait(Integer.parseInt(config.getProperty("implicit.wait")), TimeUnit.SECONDS);
+				wait = new WebDriverWait(driver,5);
+			}
+		}
+
+		public void click(String locator) {
+			if (locator.endsWith("_CSS")) {
+				driver.findElement(By.cssSelector(OR.getProperty(locator))).click();
+			} else if (locator.endsWith("_XPATH")) {
+				driver.findElement(By.xpath(OR.getProperty(locator))).click();
+			} else if (locator.endsWith("_ID")) {
+				driver.findElement(By.id(OR.getProperty(locator))).click();
+			}
+			CustomListeners.testReport.get().log(Status.INFO, "Clicking on : " + locator);
+		}
+
+		public void type(String locator, String value) {
+			if (locator.endsWith("_CSS")) {
+				driver.findElement(By.cssSelector(OR.getProperty(locator))).sendKeys(value);
+			} else if (locator.endsWith("_XPATH")) {
+				driver.findElement(By.xpath(OR.getProperty(locator))).sendKeys(value);
+			} else if (locator.endsWith("_ID")) {
+				driver.findElement(By.id(OR.getProperty(locator))).sendKeys(value);
+			}
+
+			CustomListeners.testReport.get().log(Status.INFO, "Typing in : " + locator + " entered value as " + value);
+
+		}
+
+		static WebElement dropdown;
+
+		public void select(String locator, String value) {
+
+			if (locator.endsWith("_CSS")) {
+				dropdown = driver.findElement(By.cssSelector(OR.getProperty(locator)));
+			} else if (locator.endsWith("_XPATH")) {
+				dropdown = driver.findElement(By.xpath(OR.getProperty(locator)));
+			} else if (locator.endsWith("_ID")) {
+				dropdown = driver.findElement(By.id(OR.getProperty(locator)));
+			}
+
+			Select select = new Select(dropdown);
+			select.selectByVisibleText(value);
+
+			CustomListeners.testReport.get().log(Status.INFO, "Selecting from dropdown : " + locator + " value as " + value);
+
+
+		}
+
+		public boolean isElementPresent(By by) {
+
+			try {
+
+				driver.findElement(by);
+				return true;
+
+			}catch(NoSuchElementException e) {
+				return false;
+
+
+
+			}
+
+
+		}
+
+		public static void verifyEquals(String expected, String actual) throws IOException {
+
+			try {
+
+				Assert.assertEquals(actual, expected);
+
+			} catch (Throwable t) {
+
+				TestUtil.captureScreenshot();
+				// ReportNG
+				Reporter.log("<br>" + "Verification failure : " + t.getMessage() + "<br>");
+				Reporter.log("<a target=\"_blank\" href=" + TestUtil.screenshotName + "><img src=" + TestUtil.screenshotName
+						+ " height=200 width=200></img></a>");
+				Reporter.log("<br>");
+				Reporter.log("<br>");
+				// Extent Reports
+				CustomListeners.testReport.get().log(Status.FAIL, " Verification failed with exception : " + t.getMessage());
+				CustomListeners.testReport.get().addScreenCaptureFromPath(TestUtil.screenshotName);
+				//CustomListeners.testReport.get().log(Status.FAIL,
+
+
+
+
+
+			}
+
+		}
+
+
+		@AfterSuite
+		public void tearDown() {
+
+			if(driver!=null) {
+			driver.quit();
+		}
+
+			log.debug("test execution completed !!!");
+
+		}
+
+	}
+	}
+
+		
+		
+		
+		
+		
+		
+		
+	}
+
+
+
+
+	
+	

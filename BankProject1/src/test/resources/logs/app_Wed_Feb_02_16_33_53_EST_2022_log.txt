@@ -1,0 +1,1 @@
+INFO    2022-02-02 16:33:53,198 [main] base.BaseClass  - log file !!!
