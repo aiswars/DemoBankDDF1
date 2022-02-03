@@ -119,6 +119,7 @@ do this for any other library!!!
 	--------------------------------------------
 DataProvider
 ---------------------------------------------------------------------
+2/22/2022
 Excel utility -excelreader to utitlity folder
 excel file - give the classname to sheetname- to get sheetname and classname same
 dependency fot poi - poi, poi ooxml, dom4j, xml beans, poi-ooxml-schemas
@@ -227,7 +228,7 @@ public class CustomListeners implements ITestListener{  //hover classname and se
 	  Reporter.log..logs in ontestfailure(){//to get dscfeenshots on failure of tests--to check these make a test fail- assert.fail("a failed test")
 	  add logs in ontestsuccess()
 --------------------------------------------------------------------------------------
-
+2/22/2022
 dataprovider with hashtable -- changes in the code 
 no dataprovider name just the getmethod name only
 
@@ -259,42 +260,39 @@ configuration fiel -reportsconfig.xml in src/test/resources/extentconfig folder
 	3. extentmanager for reports only
 	4. screenshots in base class - so extends baseclass in listeners.javaclass
 	  //screenshots i in Test.util class - isteners.javaclass ??
+	makesure the  listener.javaclass is in testngxml file <listeners> tag	
 		
 	Run As testngSuite-testng.xml >>a new folder- reports will be generated with html report with timestamp
-
-
+Run As maven ??-
+ maven Reports>> target/surefirereports/html/extent
+==============================
+code optimization in base class
+for clciking element
+to sendkeys to element
+Run As testngSuite-testng.xml 
+run as maven ??
 
 in baseclass add common functions to reuse in other testclasses
 	public void click(String locator) {
 	public void type(String locator, String value) {
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-=====================================================
-
-added new testcase- addcustomeraccount
-dataprovider common for 2 tests
+================================================
 dataprovider name - dp
 changes in code- Method m for methods in classes
+didnt work this -- null in locator >> check the locator varibale names in OR.properties with the code --alert ok button is not clicked- so all usernames are adding together--
+==============================================
+
+added third testcase- addcustomeraccount
+dataprovider common for 2 tests in TestUtil.java class
+dataprovider name - dp
+in testcase class- @Test(dataProviderClass = TestUtil.class, dataProvider = "dp")
+changes in code- Method m for methods in classes
+
+	Run As testngSuite-testng.xml - extent reports genrated
+	try run maven
 -0--------------------------------------------------
 
 
-	Run As testngSuite-testng.xml
 	Run As testngSuite-testng.xml
 	Run As testngSuite-testng.xml
 	

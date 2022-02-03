@@ -11,19 +11,41 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 
+
 import base.BaseClass;
+import utilities.TestUtil;
 
 public class TC2AddCustomer extends BaseClass{
 //BankManager>> AddCustomer button
 
-	@Test(dataProvider = "getData")
+	//@Test(dataProvider = "dp")   //ERROR ??
+	@Test(dataProviderClass = TestUtil.class, dataProvider = "dp")
 	
 	//public void TC2addCustomer(String fName, String lName, String postCode) {//pass no of columns in testdata.xls as parameters 
 		
 	//public void TC2addCustomer(String fName, String lName, String postCode, String alertText) {//pass no of columns in testdata.xls as parameters 
 		
-	public void TC2addCustomer(Hashtable<String,String> data) { //store the data as (key,value)pair - (firstname,isha) (lastname,.....
-				
+	public void TC2addCustomer(Hashtable<String,String> data) throws InterruptedException { //store the data as (key,value)pair - (firstname,isha) (lastname,.....
+				//addCustomerTest
+		
+		click("addCustBtn_CSS");
+		type("firstname_CSS",data.get("firstname"));
+		type("lastname_XPATH",data.get("lastname"));
+		type("postcode_CSS",data.get("postcode"));
+		
+		//click("addbtn_CSS"); 
+		click("addCbtn_CSS"); //addbtn_CSS in OR.properties
+		
+	//	Alert alert = wait.until(ExpectedConditions.alertIsPresent());
+		//msg in alert box - alert ref of type Alert Class
+		Alert alert = wait.until(ExpectedConditions.alertIsPresent());//explcit wait
+		Assert.assertTrue(alert.getText().contains(data.get("alerttext")));
+		alert.accept();
+		
+		Thread.sleep(2000);
+		
+		
+//////////////////////////////////////////////////////////////////////////////////////////////////////
 		 //data from excelsheet to dataprovider then to method parameters and directly accessing
 //		driver.findElement(By.cssSelector(OR.getProperty("addCustBtn_CSS"))).click(); // OR.getProperty("addCustBtn_CSS") elementlocators are added in OR.properties file in src/test/resources/properties
 //		driver.findElement(By.cssSelector(OR.getProperty("firstname_CSS"))).sendKeys(fName);
@@ -34,24 +56,66 @@ public class TC2AddCustomer extends BaseClass{
 		//alert popups confirmation messages
 		/*
 		 * Alert alert = wait.until(ExpectedConditions.alertIsPresent());//explcit wait
-		 * Assert.assertTrue(alert.getText().contains(alertText)); alert.accept();
+		 * Assert.assertTrue(alert.getText().contains(alertText)); 
+		 * alert.accept();
 		 */
+		
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		////data from excelsheet to dataprovider storig to hashtable then to method parameters as hashtable
-		driver.findElement(By.cssSelector(OR.getProperty("addCustBtn_CSS"))).click();
-		driver.findElement(By.cssSelector(OR.getProperty("firstname_CSS"))).sendKeys(data.get("firstname")); //testdata.xlsx titles> firstname
-		driver.findElement(By.xpath(OR.getProperty("lastname_XPATH"))).sendKeys(data.get("lastname"));
-		driver.findElement(By.cssSelector(OR.getProperty("postcode_CSS"))).sendKeys(data.get("postcode"));
-		driver.findElement(By.cssSelector(OR.getProperty("addCbtn_CSS"))).click();
-	
-		//alert popups confirmation messages
-				Alert alert = wait.until(ExpectedConditions.alertIsPresent());//explcit wait
-				Assert.assertTrue(alert.getText().contains(data.get("alerttext")));
-			alert.accept(); 
+		/*
+		 * driver.findElement(By.cssSelector(OR.getProperty("addCustBtn_CSS"))).click();
+		 * driver.findElement(By.cssSelector(OR.getProperty("firstname_CSS"))).sendKeys(
+		 * data.get("firstname")); //testdata.xlsx titles> firstname
+		 * driver.findElement(By.xpath(OR.getProperty("lastname_XPATH"))).sendKeys(data.
+		 * get("lastname"));
+		 * driver.findElement(By.cssSelector(OR.getProperty("postcode_CSS"))).sendKeys(
+		 * data.get("postcode"));
+		 * driver.findElement(By.cssSelector(OR.getProperty("addCbtn_CSS"))).click();
+		 * 
+		 * //alert popups confirmation messages 
+		 * Alert alert = wait.until(ExpectedConditions.alertIsPresent());//explcit wait
+		 * Assert.assertTrue(alert.getText().contains(data.get("alerttext")));
+		 * alert.accept();
+		 */
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
 		
 	}
 	
-//	@DataProvider(name="dp")
-	@DataProvider
+	/*
+	 *  //DIDNT WORK THIS PART
+	 * @DataProvider(name="dp") public Object[][] getData(Method m) {
+	 * 
+	 * String sheetName = m.getName(); //"AddCustomerTest - same as Classname" int
+	 * rows = excel.getRowCount(sheetName); int cols =
+	 * excel.getColumnCount(sheetName);
+	 * 
+	 * Object[][] data = new Object[rows - 1][1];
+	 * 
+	 * Hashtable<String,String> table = null;
+	 * 
+	 * for (int rowNum = 2; rowNum <= rows; rowNum++) { // 2 //data starts from row
+	 * 2, rows is rowcount table = new Hashtable<String,String>();
+	 * 
+	 * for (int colNum = 0; colNum < cols; colNum++) {
+	 * 
+	 * // data[0][0] table.put(excel.getCellData(sheetName, colNum, 1),
+	 * excel.getCellData(sheetName, colNum, rowNum)); data[rowNum - 2][0] = table;//
+	 * data[rowNum - 2][0] to get data at [0][0] position- first time- data[0][0] }
+	 * 
+	 * }
+	 * 
+	 * return data;
+	 * 
+	 * }
+	 * 
+	 */
+	
+	
+	
+	
+/*	
+	@DataProvider(name="dp")
+//	@DataProvider
 	public Object[][] getData() {
 		String sheetName = "TC2addCustomer"; //"TC2addCustomer - excel sheetname same as Classname"
 		//String sheetName = m.getName(); // same as Classname"
@@ -86,7 +150,9 @@ public class TC2AddCustomer extends BaseClass{
 		}
 
 		return data;
+		
 
 	}//getData@DataProvider
+	*/
 	
-}
+} //public class TC2AddCustomer() {

@@ -33,7 +33,7 @@ public class ExtentListeners  extends BaseClass implements ITestListener, ISuite
 
 	public static ExtentTest test;
 	
-	
+	public static ThreadLocal<ExtentTest> testReport = new ThreadLocal<ExtentTest>();
 	
 	
 	
@@ -41,8 +41,10 @@ public class ExtentListeners  extends BaseClass implements ITestListener, ISuite
 
 	public void onTestStart(ITestResult result) {
 
-		test = extent.createTest(result.getTestClass().getName() + "     @TestCase : " + result.getMethod().getMethodName());
+		  test = extent.createTest(result.getTestClass().getName() + "     @TestCase : " + result.getMethod().getMethodName());
 
+		//	ExtentTest test = extent.createTest(result.getTestClass().getName()+"     @TestCase : "+result.getMethod().getMethodName());
+	      testReport.set(test);
 	}
 
 	public void onTestSuccess(ITestResult result) {
@@ -84,7 +86,14 @@ public class ExtentListeners  extends BaseClass implements ITestListener, ISuite
 		String methodName = result.getMethod().getMethodName();
 		String logText = "<b>" + "Test Case:- " + methodName + " Skipped" + "</b>";
 		Markup m = MarkupHelper.createLabel(logText, ExtentColor.YELLOW);
-		test.skip(m);
+		//test.skip(m); //extentListener
+		testReport.get().skip(m); //CustomListener-old
+		/*
+		 * String methodName=result.getMethod().getMethodName(); String
+		 * logText="<b>"+"Test Case:- "+ methodName+ " Skipped"+"</b>"; Markup
+		 * m=MarkupHelper.createLabel(logText, ExtentColor.YELLOW);
+		 * testReport.get().skip(m);
+		 */
 
 	}
 

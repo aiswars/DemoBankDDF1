@@ -3,9 +3,9 @@ package base;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.time.Duration;
 import java.util.Date;
 import java.util.Properties;
+import java.util.concurrent.TimeUnit;
 
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
@@ -16,23 +16,19 @@ import org.apache.log4j.PropertyConfigurator;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 
-import com.aventstack.extentreports.ExtentReports;
-import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
-import com.w2a.listeners.CustomListeners;
 
-import utilities.ExcelReader;
-import utilities.ExtentManager_old;
-
-import java.util.concurrent.TimeUnit;
-
+import listeners.ExtentListeners;
+import utilities.ExcelReader;;
 
 
 
@@ -159,7 +155,7 @@ public static WebDriverWait wait;
 		
 	}//isElementPresent(By by) {
 	
-	
+	//code optimization- to click an element -utitlity
 	public void click(String locator) {
 
 		if (locator.endsWith("_CSS")) {
@@ -172,6 +168,7 @@ public static WebDriverWait wait;
 		//CustomListeners.testReport.get().log(Status.INFO, "Clicking on : " + locator);
 	}
 
+	//code optimization- to type-sendkeys to an element-checking the locator in if -utitlity
 	public void type(String locator, String value) {
 
 		if (locator.endsWith("_CSS")) {
@@ -187,7 +184,25 @@ public static WebDriverWait wait;
 	}
 	
 	
-	
+	static WebElement dropdown;
+
+	public void select(String locator, String value) {
+
+		if (locator.endsWith("_CSS")) {
+			dropdown = driver.findElement(By.cssSelector(OR.getProperty(locator)));
+		} else if (locator.endsWith("_XPATH")) {
+			dropdown = driver.findElement(By.xpath(OR.getProperty(locator)));
+		} else if (locator.endsWith("_ID")) {
+			dropdown = driver.findElement(By.id(OR.getProperty(locator)));
+		}
+		
+		Select select = new Select(dropdown);
+		select.selectByVisibleText(value);
+//ExtentListeners.java // in listeners pkg;
+		ExtentListeners.testReport.get().log(Status.INFO, "Selecting from dropdown : " + locator + " value as " + value);
+
+	}
+
 	
 	
 	

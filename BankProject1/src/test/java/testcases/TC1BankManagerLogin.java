@@ -7,20 +7,26 @@ import org.testng.annotations.Test;
 
 import base.BaseClass;
 
+
+//log.debug --log4j
+//Reporter.log("Reporter.log: 
+
 public class TC1BankManagerLogin extends BaseClass{
 //	public class TC1Login extends BaseClass{
 	
 	@Test
 	public void loginAsBankManager() throws InterruptedException {
-	//	log.debug("Inside BankMangerLogin ");
 		
-		driver.findElement(By.cssSelector(OR.getProperty("bmlBtn_CSS"))).click();
-    // Thread.sleep(2000);
+		 Thread.sleep(2000);
+		log.debug("Inside BankMangerLogin "); //in logs folder - log4j
+		click("bmlBtn_CSS"); //driver.findElement(By.cssSelector(OR.getProperty("bmlBtn_CSS"))).click();
+			
      // Assert.assertTrue(false, null);
-		// Assert.assertTrue(isElementPresent(By.cssSelector(OR.getProperty("addCustBtn_CSS"))));
-    Assert.assertTrue(isElementPresent(By.cssSelector(OR.getProperty("addCustBtn_CSS"))),"Login not successful");
-   
-    // log.debug("Login successfully executed!!");
+		 Assert.assertTrue(isElementPresent(By.cssSelector(OR.getProperty("addCustBtn_CSS"))),"Login not successful");
+	// Assert.assertTrue(isElementPresent(By.cssSelector(OR.getProperty("addCustBtn_CSS"))));
+							   //isElementPresent method in testbase to check element is present or not
+							  		//OR.getProperty - css locator Add customer btn named as addCustBtn_CSS in OR properties file
+		 log.debug("Login successfully executed!!");
 
   
     //TestNG ReportNG >>> classes in <listeners> tag in testNgxml file
