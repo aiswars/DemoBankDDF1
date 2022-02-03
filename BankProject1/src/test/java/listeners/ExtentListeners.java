@@ -37,25 +37,34 @@ public class ExtentListeners  extends BaseClass implements ITestListener, ISuite
 	
 	public static ThreadLocal<ExtentTest> testReport = new ThreadLocal<ExtentTest>();
 	
+	//worked code - onTestStart
+	 public void onTestStart(ITestResult result) {
+		 
+	  test = extent.createTest(result.getTestClass().getName() + "     @TestCase : " + result.getMethod().getMethodName());
+	 // ExtentTest test = extent.createTest(result.getTestClass().getName()+"     @TestCase : "+result.getMethod().getMethodName()); 
+	   testReport.set(test); 
+	   }
+	 
 	
-	
-	public void onTestStart(ITestResult result) { //onTestStart - for runmode
+	// public void onTestStart(ITestResult result) { //onTestStart - for runmode
 	//testcase classname and method name should ne same for this !!TC1BankManagerLogin.java -tc1BankManagerLogin()
-		test = extent.createTest(result.getTestClass().getName()+"     @TestCase : "+result.getMethod().getMethodName());
+	//	test = extent.createTest(result.getTestClass().getName()+"     @TestCase : "+result.getMethod().getMethodName());
 		
 		//test = extent.startTest(arg0.getName().toUpperCase());//copied arg0.getName() is sheetname
-		if(!TestUtil.isTestRunnable(result.getMethod().getMethodName(), excel)) {
-			throw new SkipException("Skipping the testcase-+ +  - Runmode is NO");
-		} //copied code
+	//	if(!TestUtil.isTestRunnable(result.getMethod().getMethodName(), excel)) {
+	//		throw new SkipException("Skipping the testcase-+ +  - Runmode is NO");
+	//	} //copied code
 		
-	      testReport.set(test);
-	}
+	    //  testReport.set(test);
+//	}
 
 	/*
 	 * public void onTestStart(ITestResult result) {
 	 * 
 	 * test = rep.startTest(arg0.getName().toUpperCase());//copied-video
 	 * if(!TestUtil.isTestRunnable(fileName, excel)) { throw new
+	 * syssout(arg0.getName().toUpperCase())
+	 * if(!TestUtil.isTestRunnable(arg0.getName().toUpperCase(), excel)) { throw new
 	 * SkipException("Skipping the testcase-+ "arg0.getName().toUpperCase() +
 	 * "  - Runmode is NO"); } //copied code
 	 * 

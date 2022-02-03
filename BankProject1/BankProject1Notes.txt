@@ -304,9 +304,18 @@ as per application third test usrname should feom the drop down - already added 
 	Run As testngSuite-testng.xml
 	
 	
-	lecture 17 .. 3rd testcase didnt execute
+	lecture 17 .. 3rd testcase didnt execute - code updated in TC3OpenAccount - and its worked
+	//runmode in excel sheetname tc3OpenAccount >> - listener.java-onTestStart
+		//now runmode is No for TC3OpenAccount
+		//skiping the test based on a condition so its not handling in listener onTestStart
+		if(!(TestUtil.isTestRunnable("tc3OpenAccount", excel))){
+			
+	runmode y for 3 testcases-- total 8 tests pass
+	//now runmode is No for TC3OpenAccount  - 7 tests passed - 1 skipped
+	try run maven test
 	
-	
+	==============================
+	try testng groups!!!
 	
 	
 	
