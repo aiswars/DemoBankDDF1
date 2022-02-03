@@ -23,12 +23,12 @@
       <![CDATA[loginAsBankManager-Login successfully executed]]>
     </line>
   </reporter-output>
-  <suite started-at="2022-02-03T08:26:18Z" name="Suite" finished-at="2022-02-03T08:26:40Z" duration-ms="21109">
+  <suite started-at="2022-02-03T08:54:02Z" name="Suite" finished-at="2022-02-03T08:54:21Z" duration-ms="18973">
     <groups>
     </groups>
-    <test started-at="2022-02-03T08:26:18Z" name="Bank Manager Login Test" finished-at="2022-02-03T08:26:24Z" duration-ms="5179">
+    <test started-at="2022-02-03T08:54:02Z" name="Bank Manager Login Test" finished-at="2022-02-03T08:54:06Z" duration-ms="3742">
       <class name="testcases.TC1BankManagerLogin">
-        <test-method signature="tc1BankManagerLogin()[pri:0, instance:testcases.TC1BankManagerLogin@3af356f]" started-at="2022-02-03T08:26:18Z" name="tc1BankManagerLogin" finished-at="2022-02-03T08:26:24Z" duration-ms="5157" status="PASS">
+        <test-method signature="tc1BankManagerLogin()[pri:0, instance:testcases.TC1BankManagerLogin@41aaedaa]" started-at="2022-02-03T08:54:02Z" name="tc1BankManagerLogin" finished-at="2022-02-03T08:54:06Z" duration-ms="3717" status="PASS">
           <reporter-output>
             <line>
               <![CDATA[Reporter.log: Failed test>> Screenshot link]]>
@@ -55,9 +55,9 @@
         </test-method> <!-- tc1BankManagerLogin -->
       </class> <!-- testcases.TC1BankManagerLogin -->
     </test> <!-- Bank Manager Login Test -->
-    <test started-at="2022-02-03T08:26:24Z" name="Add Customer Test" finished-at="2022-02-03T08:26:39Z" duration-ms="15614">
+    <test started-at="2022-02-03T08:54:06Z" name="Add Customer Test" finished-at="2022-02-03T08:54:18Z" duration-ms="12272">
       <class name="testcases.TC2AddCustomer">
-        <test-method signature="tc2AddCustomer(java.util.Hashtable)[pri:0, instance:testcases.TC2AddCustomer@48c4245d]" started-at="2022-02-03T08:26:24Z" name="tc2AddCustomer" data-provider="dp" finished-at="2022-02-03T08:26:28Z" duration-ms="4351" status="PASS">
+        <test-method signature="tc2AddCustomer(java.util.Hashtable)[pri:0, instance:testcases.TC2AddCustomer@47f08b81]" started-at="2022-02-03T08:54:06Z" name="tc2AddCustomer" data-provider="dp" finished-at="2022-02-03T08:54:09Z" duration-ms="3304" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -68,7 +68,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tc2AddCustomer -->
-        <test-method signature="tc2AddCustomer(java.util.Hashtable)[pri:0, instance:testcases.TC2AddCustomer@48c4245d]" started-at="2022-02-03T08:26:28Z" name="tc2AddCustomer" data-provider="dp" finished-at="2022-02-03T08:26:30Z" duration-ms="2238" status="PASS">
+        <test-method signature="tc2AddCustomer(java.util.Hashtable)[pri:0, instance:testcases.TC2AddCustomer@47f08b81]" started-at="2022-02-03T08:54:09Z" name="tc2AddCustomer" data-provider="dp" finished-at="2022-02-03T08:54:09Z" duration-ms="2" status="SKIP">
           <params>
             <param index="0">
               <value>
@@ -76,76 +76,13 @@
               </value>
             </param>
           </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tc2AddCustomer -->
-        <test-method signature="tc2AddCustomer(java.util.Hashtable)[pri:0, instance:testcases.TC2AddCustomer@48c4245d]" started-at="2022-02-03T08:26:30Z" name="tc2AddCustomer" data-provider="dp" finished-at="2022-02-03T08:26:33Z" duration-ms="2241" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[{alerttext=Customer added successfully, postcode=ghgf, lastname=Kulkarni, runmode=Y, firstname=Nita}]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tc2AddCustomer -->
-        <test-method signature="tc2AddCustomer(java.util.Hashtable)[pri:0, instance:testcases.TC2AddCustomer@48c4245d]" started-at="2022-02-03T08:26:33Z" name="tc2AddCustomer" data-provider="dp" finished-at="2022-02-03T08:26:35Z" duration-ms="2225" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[{alerttext=Customer added successfully, postcode=hgg, lastname=Parv, runmode=Y, firstname=Rajiv}]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tc2AddCustomer -->
-        <test-method signature="tc2AddCustomer(java.util.Hashtable)[pri:0, instance:testcases.TC2AddCustomer@48c4245d]" started-at="2022-02-03T08:26:35Z" name="tc2AddCustomer" data-provider="dp" finished-at="2022-02-03T08:26:37Z" duration-ms="2258" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[{alerttext=Customer added successfully, postcode=hjh, lastname=River, runmode=, firstname=Ganga}]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tc2AddCustomer -->
-        <test-method signature="tc2AddCustomer(java.util.Hashtable)[pri:0, instance:testcases.TC2AddCustomer@48c4245d]" started-at="2022-02-03T08:26:37Z" name="tc2AddCustomer" data-provider="dp" finished-at="2022-02-03T08:26:39Z" duration-ms="2246" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[{alerttext=Customer added successfully, postcode=mhjk, lastname=Sankar, runmode=, firstname=Dev}]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tc2AddCustomer -->
-      </class> <!-- testcases.TC2AddCustomer -->
-    </test> <!-- Add Customer Test -->
-    <test started-at="2022-02-03T08:26:40Z" name="Open Account Test" finished-at="2022-02-03T08:26:40Z" duration-ms="7">
-      <class name="testcases.TC3OpenAccount">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:testcases.TC3OpenAccount@2787de58]" started-at="2022-02-03T08:26:11Z" name="setUp" finished-at="2022-02-03T08:26:18Z" duration-ms="7024" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method signature="tc3OpenAccount(java.util.Hashtable)[pri:0, instance:testcases.TC3OpenAccount@2787de58]" started-at="2022-02-03T08:26:40Z" name="tc3OpenAccount" data-provider="dp" finished-at="2022-02-03T08:26:40Z" duration-ms="2" status="SKIP">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[{currency=Rupee, customer=Anita Jacob}]]>
-              </value>
-            </param>
-          </params>
           <exception class="org.testng.SkipException">
             <message>
-              <![CDATA[Skipping the test OPENACCOUNTTESTas the Run mode is NO]]>
+              <![CDATA[Skipping the test case as the Run mode for data set is NO]]>
             </message>
             <full-stacktrace>
-              <![CDATA[org.testng.SkipException: Skipping the test OPENACCOUNTTESTas the Run mode is NO
-at testcases.TC3OpenAccount.tc3OpenAccount(TC3OpenAccount.java:23)
+              <![CDATA[org.testng.SkipException: Skipping the test case as the Run mode for data set is NO
+at testcases.TC2AddCustomer.tc2AddCustomer(TC2AddCustomer.java:35)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)
 at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -176,8 +113,71 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
           </exception> <!-- org.testng.SkipException -->
           <reporter-output>
           </reporter-output>
+        </test-method> <!-- tc2AddCustomer -->
+        <test-method signature="tc2AddCustomer(java.util.Hashtable)[pri:0, instance:testcases.TC2AddCustomer@47f08b81]" started-at="2022-02-03T08:54:09Z" name="tc2AddCustomer" data-provider="dp" finished-at="2022-02-03T08:54:12Z" duration-ms="2230" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[{alerttext=Customer added successfully, postcode=ghgf, lastname=Kulkarni, runmode=Y, firstname=Nita}]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tc2AddCustomer -->
+        <test-method signature="tc2AddCustomer(java.util.Hashtable)[pri:0, instance:testcases.TC2AddCustomer@47f08b81]" started-at="2022-02-03T08:54:12Z" name="tc2AddCustomer" data-provider="dp" finished-at="2022-02-03T08:54:14Z" duration-ms="2239" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[{alerttext=Customer added successfully, postcode=hgg, lastname=Parv, runmode=Y, firstname=Rajiv}]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tc2AddCustomer -->
+        <test-method signature="tc2AddCustomer(java.util.Hashtable)[pri:0, instance:testcases.TC2AddCustomer@47f08b81]" started-at="2022-02-03T08:54:14Z" name="tc2AddCustomer" data-provider="dp" finished-at="2022-02-03T08:54:16Z" duration-ms="2240" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[{alerttext=Customer added successfully, postcode=hjh, lastname=River, runmode=Y, firstname=Ganga}]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tc2AddCustomer -->
+        <test-method signature="tc2AddCustomer(java.util.Hashtable)[pri:0, instance:testcases.TC2AddCustomer@47f08b81]" started-at="2022-02-03T08:54:16Z" name="tc2AddCustomer" data-provider="dp" finished-at="2022-02-03T08:54:18Z" duration-ms="2195" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[{alerttext=Customer added successfully, postcode=mhjk, lastname=Sankar, runmode=Y, firstname=Dev}]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tc2AddCustomer -->
+      </class> <!-- testcases.TC2AddCustomer -->
+    </test> <!-- Add Customer Test -->
+    <test started-at="2022-02-03T08:54:18Z" name="Open Account Test" finished-at="2022-02-03T08:54:21Z" duration-ms="2649">
+      <class name="testcases.TC3OpenAccount">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:testcases.TC3OpenAccount@5116ac09]" started-at="2022-02-03T08:53:58Z" name="setUp" finished-at="2022-02-03T08:54:02Z" duration-ms="3853" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="tc3OpenAccount(java.util.Hashtable)[pri:0, instance:testcases.TC3OpenAccount@5116ac09]" started-at="2022-02-03T08:54:18Z" name="tc3OpenAccount" data-provider="dp" finished-at="2022-02-03T08:54:21Z" duration-ms="2640" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[{currency=Rupee, customer=anish Sharma}]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
         </test-method> <!-- tc3OpenAccount -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:testcases.TC3OpenAccount@2787de58]" started-at="2022-02-03T08:26:40Z" name="tearDown" finished-at="2022-02-03T08:26:40Z" duration-ms="167" status="PASS">
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:testcases.TC3OpenAccount@5116ac09]" started-at="2022-02-03T08:54:21Z" name="tearDown" finished-at="2022-02-03T08:54:21Z" duration-ms="170" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->

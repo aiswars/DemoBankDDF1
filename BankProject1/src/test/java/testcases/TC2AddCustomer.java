@@ -7,6 +7,7 @@ import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
+import org.testng.SkipException;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
@@ -27,6 +28,14 @@ public class TC2AddCustomer extends BaseClass{
 		
 	public void tc2AddCustomer(Hashtable<String,String> data) throws InterruptedException { //store the data as (key,value)pair - (firstname,isha) (lastname,.....
 				//addCustomerTest
+		
+
+		if(!data.get("runmode").equals("Y")){
+			
+			throw new SkipException("Skipping the test case as the Run mode for data set is NO");
+		}
+		
+		
 		
 		click("addCustBtn_CSS");
 		type("firstname_CSS",data.get("firstname"));

@@ -229,6 +229,8 @@ public class CustomListeners implements ITestListener{  //hover classname and se
 	  add logs in ontestsuccess()
 --------------------------------------------------------------------------------------
 2/22/2022
+
+lecture 21
 dataprovider with hashtable -- changes in the code 
 no dataprovider name just the getmethod name only
 
@@ -288,10 +290,12 @@ dataprovider name - dp
 in testcase class- @Test(dataProviderClass = TestUtil.class, dataProvider = "dp")
 changes in code- Method m for methods in classes
 
-	Run As testngSuite-testng.xml - extent reports genrated
+testng2Proj1.xml
+	Run As testngSuite-testng.xml testng2Proj1.xml - extent reports genrated
 	try run maven
 -0--------------------------------------------------
 
+Setting up Runmodes - in new excel sheet
 Adding Runmodes lecture 17
 
 RunModes- to control the tests to run by datadriven -excel
@@ -301,7 +305,7 @@ and handle this in listeners.javaclass - onTestSatart()-add code
 sheetnames - same as classnames
 as per application third test usrname should feom the drop down - already added user name
 	a utility in TestUtil.java for this - isTestRunnable()
-	Run As testngSuite-testng.xml
+	Run As testngSuite-testng.xml testng2Proj1.xml
 	
 	
 	lecture 17 .. 3rd testcase didnt execute - code updated in TC3OpenAccount - and its worked
@@ -318,9 +322,15 @@ as per application third test usrname should feom the drop down - already added 
 	try testng groups!!!
 	
 	
+	============================
 	
 	
 	
-	Run As testngSuite-testng.xml
+	Setting up Runmodes testdata for parametrization
+	-------------------------------
+	Setting up Runmodes testdata for parametrization- along with users data in first testcase data-first sheet excel sheet
+	add one more column for runmode in first sheet and update code in TC2Addcustomer.java
+		for 3rd testcase tc3OpenAccount make sure the added user's name is selected in the excel sheet
+	Run As testngSuite-testng.xml testng2Proj1.xml
 	
 	

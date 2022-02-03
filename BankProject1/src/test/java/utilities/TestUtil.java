@@ -43,7 +43,8 @@ public class TestUtil extends BaseClass {
 		int rows = excel.getRowCount(sheetName);
 		int cols = excel.getColumnCount(sheetName);
 
-		Object[][] data = new Object[rows - 1][1];
+		Object[][] data = new Object[rows - 1][1]; //col is 1 as Hashtable is used here- always the column is 1-as the method tc2AddCustomer(Hashtable<String,String> data parameter
+		//always the column is 1-as the method tc2AddCustomer(Hashtable<String,String> data) is keeping only one parameter- title in the excel sheet and its value- key,value- so columns are not n number
 		
 		Hashtable<String,String> table = null;
 
@@ -56,6 +57,7 @@ public class TestUtil extends BaseClass {
 				// data[0][0]
 				table.put(excel.getCellData(sheetName, colNum, 1), excel.getCellData(sheetName, colNum, rowNum));
 				data[rowNum - 2][0] = table;// data[rowNum - 2][0] to get data at [0][0] position- first time- data[0][0]
+				// Hashtable - only one key value at a time- so one column so col -0 >>> addCustomerTest(Hashtable<String,String> data)
 			}
 
 		}
