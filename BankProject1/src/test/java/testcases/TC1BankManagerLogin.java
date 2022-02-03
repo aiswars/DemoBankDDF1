@@ -23,10 +23,11 @@ public class TC1BankManagerLogin extends BaseClass{
     // log.debug("Login successfully executed!!");
 
   
-    //TestNG ReportNG
+    //TestNG ReportNG >>> classes in <listeners> tag in testNgxml file
   		System.setProperty("org.uncommons.reportng.escape-output","false");  //to generate html output>> instead of plain text in html report of TestNG ReportNG
   		 
-  		//TestNG Reporter
+  		//TestNG Reporter >>>  just import org.testng.Reporter;
+  		//-------------------------------------------------------
   		//Reporter.log("<a href=\"F:\\screenshot\\error.jpg\" target=\"_blank\">Screenshot link</a>");
   		
   		//Reporter.log("<br>");

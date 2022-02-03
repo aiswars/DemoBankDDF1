@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="2" total="4" passed="1" failed="1" skipped="0">
+<testng-results ignored="2" total="9" passed="7" failed="0" skipped="0">
   <reporter-output>
     <line>
       <![CDATA[Reporter.log: Failed test>> Screenshot link]]>
@@ -23,16 +23,16 @@
       <![CDATA[Login successfully executed]]>
     </line>
   </reporter-output>
-  <suite started-at="2022-02-02T21:42:57Z" name="Suite" finished-at="2022-02-02T21:42:58Z" duration-ms="1368">
+  <suite started-at="2022-02-03T03:33:13Z" name="Suite" finished-at="2022-02-03T03:33:16Z" duration-ms="2791">
     <groups>
     </groups>
-    <test started-at="2022-02-02T21:42:57Z" name="Test" finished-at="2022-02-02T21:42:58Z" duration-ms="1368">
+    <test started-at="2022-02-03T03:33:13Z" name="Test" finished-at="2022-02-03T03:33:16Z" duration-ms="2791">
       <class name="testcases.TC1BankManagerLogin">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:testcases.TC1BankManagerLogin@49bd54f7]" started-at="2022-02-02T21:42:53Z" name="setUp" finished-at="2022-02-02T21:42:57Z" duration-ms="3819" status="PASS">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:testcases.TC1BankManagerLogin@1556f2dd]" started-at="2022-02-03T03:33:09Z" name="setUp" finished-at="2022-02-03T03:33:13Z" duration-ms="3767" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="loginAsBankManager()[pri:0, instance:testcases.TC1BankManagerLogin@49bd54f7]" started-at="2022-02-02T21:42:57Z" name="loginAsBankManager" finished-at="2022-02-02T21:42:58Z" duration-ms="1340" status="PASS">
+        <test-method signature="loginAsBankManager()[pri:0, instance:testcases.TC1BankManagerLogin@1556f2dd]" started-at="2022-02-03T03:33:13Z" name="loginAsBankManager" finished-at="2022-02-03T03:33:14Z" duration-ms="1016" status="PASS">
           <reporter-output>
             <line>
               <![CDATA[Reporter.log: Failed test>> Screenshot link]]>
@@ -57,48 +57,75 @@
             </line>
           </reporter-output>
         </test-method> <!-- loginAsBankManager -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:testcases.TC1BankManagerLogin@49bd54f7]" started-at="2022-02-02T21:42:58Z" name="tearDown" finished-at="2022-02-02T21:42:59Z" duration-ms="192" status="PASS">
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:testcases.TC1BankManagerLogin@1556f2dd]" started-at="2022-02-03T03:33:16Z" name="tearDown" finished-at="2022-02-03T03:33:16Z" duration-ms="177" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
       </class> <!-- testcases.TC1BankManagerLogin -->
       <class name="testcases.TC2AddCustomer">
-        <test-method signature="TC2addCustomer(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:testcases.TC2AddCustomer@6b5f8707]" started-at="2022-02-02T21:42:58Z" name="TC2addCustomer" data-provider="getData" finished-at="2022-02-02T21:42:58Z" duration-ms="9" status="FAIL">
-          <exception class="org.testng.internal.reflect.MethodMatcherException">
-            <message>
-              <![CDATA[
-Data provider mismatch
-Method: TC2addCustomer([Parameter{index=0, type=java.lang.String, declaredAnnotations=[]}, Parameter{index=1, type=java.lang.String, declaredAnnotations=[]}, Parameter{index=2, type=java.lang.String, declaredAnnotations=[]}])
-Arguments: [(java.lang.String) Raman,(java.lang.String) Arora,(java.lang.String) A234wd,(java.lang.String) Customer added successfully]]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[org.testng.internal.reflect.MethodMatcherException: 
-Data provider mismatch
-Method: TC2addCustomer([Parameter{index=0, type=java.lang.String, declaredAnnotations=[]}, Parameter{index=1, type=java.lang.String, declaredAnnotations=[]}, Parameter{index=2, type=java.lang.String, declaredAnnotations=[]}])
-Arguments: [(java.lang.String) Raman,(java.lang.String) Arora,(java.lang.String) A234wd,(java.lang.String) Customer added successfully]
-at org.testng.internal.reflect.DataProviderMethodMatcher.getConformingArguments(DataProviderMethodMatcher.java:45)
-at org.testng.internal.Parameters.injectParameters(Parameters.java:796)
-at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:983)
-at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
-at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
-at org.testng.TestRunner.privateRun(TestRunner.java:648)
-at org.testng.TestRunner.run(TestRunner.java:505)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
-at org.testng.SuiteRunner.run(SuiteRunner.java:364)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
-at org.testng.TestNG.runSuites(TestNG.java:1049)
-at org.testng.TestNG.run(TestNG.java:1017)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-]]>
-            </full-stacktrace>
-          </exception> <!-- org.testng.internal.reflect.MethodMatcherException -->
+        <test-method signature="TC2addCustomer(java.util.Hashtable)[pri:0, instance:testcases.TC2AddCustomer@35e52059]" started-at="2022-02-03T03:33:14Z" name="TC2addCustomer" data-provider="getData" finished-at="2022-02-03T03:33:15Z" duration-ms="675" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[{alerttext=Customer added successfully, postcode=dfdsf, lastname=liz, firstname=Raman}]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC2addCustomer -->
+        <test-method signature="TC2addCustomer(java.util.Hashtable)[pri:0, instance:testcases.TC2AddCustomer@35e52059]" started-at="2022-02-03T03:33:15Z" name="TC2addCustomer" data-provider="getData" finished-at="2022-02-03T03:33:15Z" duration-ms="216" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[{alerttext=Customer added successfully, postcode=fgfg, lastname=jid, firstname=qwqa}]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC2addCustomer -->
+        <test-method signature="TC2addCustomer(java.util.Hashtable)[pri:0, instance:testcases.TC2AddCustomer@35e52059]" started-at="2022-02-03T03:33:15Z" name="TC2addCustomer" data-provider="getData" finished-at="2022-02-03T03:33:15Z" duration-ms="239" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[{alerttext=Customer added successfully, postcode=ghgf, lastname=tity, firstname=sfsdff}]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC2addCustomer -->
+        <test-method signature="TC2addCustomer(java.util.Hashtable)[pri:0, instance:testcases.TC2AddCustomer@35e52059]" started-at="2022-02-03T03:33:15Z" name="TC2addCustomer" data-provider="getData" finished-at="2022-02-03T03:33:16Z" duration-ms="194" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[{alerttext=Customer added successfully, postcode=hgg, lastname=fasi, firstname=cvcvxc}]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC2addCustomer -->
+        <test-method signature="TC2addCustomer(java.util.Hashtable)[pri:0, instance:testcases.TC2AddCustomer@35e52059]" started-at="2022-02-03T03:33:16Z" name="TC2addCustomer" data-provider="getData" finished-at="2022-02-03T03:33:16Z" duration-ms="202" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[{alerttext=Customer added successfully, postcode=hjh, lastname=binu, firstname=rety}]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC2addCustomer -->
+        <test-method signature="TC2addCustomer(java.util.Hashtable)[pri:0, instance:testcases.TC2AddCustomer@35e52059]" started-at="2022-02-03T03:33:16Z" name="TC2addCustomer" data-provider="getData" finished-at="2022-02-03T03:33:16Z" duration-ms="210" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[{alerttext=Customer added successfully, postcode=mhjk, lastname=bibi, firstname=cftg}]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TC2addCustomer -->

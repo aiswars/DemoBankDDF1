@@ -47,6 +47,7 @@ project home>> System.getProperty("user.dir")
 	PropertyConfigurator.configure("Log4j.properties");//in setUp()
 	
 	Apache Log4J
+	-----------------------------
 log4j.api	 in pom.xml
 log4j-core	
 
@@ -69,6 +70,7 @@ Looger class in base class>> import GetLogger method(not class) from apache
 devpinoyLogger - standard name for the logger
 add logs
 
+log.debug didnt work???????????????????????
 
 	import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
@@ -94,7 +96,7 @@ OR ?? here worked above one - not given below
 			<version>2.14.1</version>
 		</dependency>
 	
-	
+	-----------------------------------------------------------------
 	
 	
 adding assertions Assertions
@@ -114,8 +116,9 @@ do this for any other library!!!
 	
 	TC1Login name changed to TC1BankManagerLogin.java - change it in testng.xml file too
 	Add new test case in tescases pkg>> TC2AddCustomer
-	
+	--------------------------------------------
 DataProvider
+---------------------------------------------------------------------
 Excel utility -excelreader to utitlity folder
 excel file - give the classname to sheetname- to get sheetname and classname same
 dependency fot poi - poi, poi ooxml, dom4j, xml beans, poi-ooxml-schemas
@@ -139,40 +142,51 @@ excel file reader utility file intilization in base class
 	//code for alert in TC2AddCustomer
 	Run As testngSuite-testng.xml
 	some error in col num in excel reading
-	
-
-ReportNG >>reportng jars, google juice jars in pom.xml
-class needs to be invoked through restng listeners
-so add <listeners> tag in testng xml file-only step for reportng
+-------------------------------------------------------------------------------------------	
+Reporter//TestNG Reporter just import org.testng.Reporter;
+ Run As testngSuite-testng.xml //to print in emailablereport.html
+Reporter.log("Reporter.log: Failed test>> Screenshot link");//to print in emailablereport.html
+ Reporter.log("Reporter.log  Screenshot link "); //to print in emailablereport.html
+  ------------------------------------------------------------------------------------------	
+ReportNG >>
+ Run As testngSuite-testng.xml
+		HTMLReporter> test-output> html>index.html
+reportng jars, google juice jars in pom.xml
+class needs to be invoked through testng listeners in testng xml file - NOT listener.javaclass file
+so add <listeners> tag and the requird classnames in testng xml file-only step for reportng
 htmlreporter for html report - after execution -check for html folder- index.html-lec10-can customize this html-logs>>  ReportNG -Reporter.log(..........,html,screenshots,links,..
 junitxmlreporter for xml report
 htmlreport>> plain text>>to view as html set a flag reportng.escape-output to false
 		ReportNG - testNG report only - to get this there is a class that gets invoked only through listeners. so give that listeners in tetsng xml file
 	Add ReportNG dependencies
 	Add required Listeners name in <listners> tag in testng.xml file
+
+<Suite name--
 	<listeners>
       <listener class-name="org.uncommons.reportng.HTMLReporter"/>
       <listener class-name="org.uncommons.reportng.JUnitXMLReporter"/>
                                              /// <listener class-name="com.w2a.listeners.CustomListeners"/>
   </listeners>
-  Run As testngSuite-testng.xml
+  Run As testngSuite-testng.xml > html folder will be created inside test-output folder
 		HTMLReporter> test-output> html>index.html
-	
+--------------------------------------------------------------------------------------	
 	can customize the reportNG reports 
 	Reporter.log("Login successfully executed"); //import testng reporter
 	screenshots, links, html view...
 	  Run As testngSuite-testng.xml
-
-	listners.java
+	  
+---------------------------------------------------------------------------------------------
+	listners.java in listeners package
 	listners.java <listners> tag in testng.xml file
 	<listener class-name="com.w2a.listeners.CustomListeners"/>
 	cpaturescreenshot in baseclass
 	customize the methods in listneres class
 	  Run As testngSuite-testng.xml
-	  
+	 ------------------------------------------------------------------------------------------------- 
 	  
 	  before customizing the listeners class execute the project through Mavan lifecycle - clean test
 	  in pom.xml add surefireplugin> in outside dependencies/ <build><plugins>pllugin> to execute as maven test based on testng xml - the sequence 
+	Also make sure the testngxml file name and path is correct in 	<suiteXmlFile>src/test/resources/runner/testngProj1.xml</suiteXmlFile>
 	  if no surefireplugin in testngxml file maven execure the tests with 'test' as suffix/prefix in the name no sequenece
 	  check notes
 	  mvn clean delete the target folder itself
@@ -185,7 +199,7 @@ add the below properties in pom.xml file add this outside your <dependencies> ta
      <maven.compiler.source>1.8</maven.compiler.source>
      <maven.compiler.target>1.8</maven.compiler.target>
 </properties>
-	
+-------------------------------------------------------------------------------------	
 l12
 cpaturescreenshot in TestUtil.java extends base class
 scrrenshots in>> targets/surefirereports/html/...
