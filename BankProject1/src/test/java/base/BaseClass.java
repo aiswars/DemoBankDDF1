@@ -23,10 +23,14 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 import com.w2a.listeners.CustomListeners;
 
 import utilities.ExcelReader;
+import utilities.ExtentManager_old;
+
 import java.util.concurrent.TimeUnit;
 
 

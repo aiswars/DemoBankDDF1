@@ -4,10 +4,14 @@
  <listeners>
       <listener class-name="org.uncommons.reportng.HTMLReporter"/><!--//ReportNG classes -->
         <listener class-name="org.uncommons.reportng.HTMLReporter"/> <!--//ReportNG classes -->
-  
-  <listener class-name="listeners.CustomListeners"/>  <!--// listeners.java -->
+     
+      <listener class-name="listeners.ExtentListeners"/>   <!-- // listeners.java -->
+   <!-- 
+    <listener class-name="listeners.CustomListeners"/>   // listeners.java -->
+     -->
     
 </listeners>
+
  <!-- <test thread-count="5" name="Test">-->
   <test name="Test">
     <classes>

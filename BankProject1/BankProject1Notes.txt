@@ -209,6 +209,10 @@ add the below properties in pom.xml file add this outside your <dependencies> ta
      <maven.compiler.target>1.8</maven.compiler.target>
 </properties>
 -------------------------------------------------------------------------------------	
+Adding listeners
+	1. create class Customlistners.java in listeners package
+    2.add Customlistners.javaclass in <listners> tag in testng.xml file
+	
 listners.java in listeners package
 	listners.java <listners> tag in testng.xml file
 	<listener class-name="com.w2a.listeners.CustomListeners"/>
@@ -222,7 +226,7 @@ public class CustomListeners implements ITestListener{  //hover classname and se
   in listener.java add
 	  Reporter.log..logs in ontestfailure(){//to get dscfeenshots on failure of tests--to check these make a test fail- assert.fail("a failed test")
 	  add logs in ontestsuccess()
-	 ----------------------------------------
+--------------------------------------------------------------------------------------
 
 dataprovider with hashtable -- changes in the code 
 no dataprovider name just the getmethod name only
@@ -234,6 +238,29 @@ no dataprovider name just the getmethod name only
 ----------------------------------------------------------
 
 
+l12
+cpaturescreenshot in TestUtil.java extends base class
+scrrenshots in>> targets/surefirereports/html/...
+in listeneres.java class >> testutil.capturescreenshot();
+Run As Maven --target
+Run As testngSuite-testng.xml>>test-output
+
+l14 extent reports
+ extentmangaer.java class file
+configuration fiel -reportsconfig.xml in src/test/resources/extentconfig folder	
+	extentmanager.java for the extentreports
+	
+	
+	1.extentMangaer and listener.javaclass in one package-extentlisteners package project8
+	2. extentmanger for repeots, screenshots
+	or 
+	1. exyentmanager in utilities package 
+	2. listeners.javaclass in listeners package--project1
+	3. extentmanager for reports only
+	4. screenshots in base class - so extends baseclass in listeners.javaclass
+	  //screenshots i in Test.util class - isteners.javaclass ??
+		
+	Run As testngSuite-testng.xml >>a new folder- reports will be generated with html report with timestamp
 
 
 
@@ -267,19 +294,6 @@ changes in code- Method m for methods in classes
 -0--------------------------------------------------
 
 
-l12
-cpaturescreenshot in TestUtil.java extends base class
-scrrenshots in>> targets/surefirereports/html/...
-in listeneres.java class >> testutil.capturescreenshot();
-Run As Maven
-l14 extent reports
- extentmangaer.java class file
-configuration fiel -reportsconfig.xml in resources folder	
-	extentmanager.java for the extentreports
-	
-	
-	
-	Run As testngSuite-testng.xml
 	Run As testngSuite-testng.xml
 	Run As testngSuite-testng.xml
 	Run As testngSuite-testng.xml
