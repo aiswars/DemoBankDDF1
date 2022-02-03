@@ -48,8 +48,8 @@ public class TC1BankManagerLogin extends BaseClass{
   	 
   		//Reporter.log("  <a href=\"F:\\screenshot\\error.jpg\"               target=\"_blank\"> <img height=200 width=200 src=\"F:\\screenshot\\error.jpg\"> </a>");
   		
-  	    Reporter.log("Login successfully executed");
-  	  //Assert.fail("Login not successful");
+  	    Reporter.log("loginAsBankManager-Login successfully executed");
+  	  //Assert.fail("Login not successful");// to make a test fail to check listeners-onTestFailure-screenshot
         
    		
 }//loginAsBankManager() {

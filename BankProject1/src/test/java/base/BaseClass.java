@@ -23,6 +23,9 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 
+import com.aventstack.extentreports.Status;
+import com.w2a.listeners.CustomListeners;
+
 import utilities.ExcelReader;
 import java.util.concurrent.TimeUnit;
 
@@ -153,6 +156,31 @@ public static WebDriverWait wait;
 	}//isElementPresent(By by) {
 	
 	
+	public void click(String locator) {
+
+		if (locator.endsWith("_CSS")) {
+			driver.findElement(By.cssSelector(OR.getProperty(locator))).click();
+		} else if (locator.endsWith("_XPATH")) {
+			driver.findElement(By.xpath(OR.getProperty(locator))).click();
+		} else if (locator.endsWith("_ID")) {
+			driver.findElement(By.id(OR.getProperty(locator))).click();
+		}
+		//CustomListeners.testReport.get().log(Status.INFO, "Clicking on : " + locator);
+	}
+
+	public void type(String locator, String value) {
+
+		if (locator.endsWith("_CSS")) {
+			driver.findElement(By.cssSelector(OR.getProperty(locator))).sendKeys(value);
+		} else if (locator.endsWith("_XPATH")) {
+			driver.findElement(By.xpath(OR.getProperty(locator))).sendKeys(value);
+		} else if (locator.endsWith("_ID")) {
+			driver.findElement(By.id(OR.getProperty(locator))).sendKeys(value);
+		}
+
+		//CustomListeners.testReport.get().log(Status.INFO, "Typing in : " + locator + " entered value as " + value);
+
+	}
 	
 	
 	

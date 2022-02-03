@@ -136,6 +136,9 @@ excel file reader utility file intilization in base class
 	add element locators ...driver.find..click...as per the application add cutomer>>fname,laname, postcode
 	Also add a cloumn in testdata.xls/ for the alert box - after adding a customer
 	
+	 //data from excelsheet to dataprovider then to method parameters and directly accessing
+//		driver.findElement(By.cssSelector(OR.getProperty("addCustBtn_CSS"))).click(); // OR.getProperty("addCustBtn_CSS") elementlocators are added in OR.properties file in src/test/resources/properties
+//	
 	
 	explicit wait until alert is present declaration in base class and usage in testclass
 	wait = new WebDriverWait(driver,5);//explicitwait
@@ -176,13 +179,19 @@ htmlreport>> plain text>>to view as html set a flag reportng.escape-output to fa
 	  Run As testngSuite-testng.xml
 	  
 ---------------------------------------------------------------------------------------------
-	listners.java in listeners package
-	listners.java <listners> tag in testng.xml file
+	
+	Adding listeners
+	1. create class Customlistners.java in listeners package
+    2.add Customlistners.javaclass in <listners> tag in testng.xml file
 	<listener class-name="com.w2a.listeners.CustomListeners"/>
-	cpaturescreenshot in baseclass
+	cpaturescreenshot in testUilities
 	customize the methods in listneres class
 	  Run As testngSuite-testng.xml
+
 	 ------------------------------------------------------------------------------------------------- 
+	  
+	  
+	  maven error 
 	  
 	  before customizing the listeners class execute the project through Mavan lifecycle - clean test
 	  in pom.xml add surefireplugin> in outside dependencies/ <build><plugins>pllugin> to execute as maven test based on testng xml - the sequence 
@@ -200,6 +209,64 @@ add the below properties in pom.xml file add this outside your <dependencies> ta
      <maven.compiler.target>1.8</maven.compiler.target>
 </properties>
 -------------------------------------------------------------------------------------	
+listners.java in listeners package
+	listners.java <listners> tag in testng.xml file
+	<listener class-name="com.w2a.listeners.CustomListeners"/>
+	cpaturescreenshot in testUilities
+	customize the methods in listneres class
+	  Run As testngSuite-testng.xml
+
+in listener.java first give  implements ITestListener interface
+public class CustomListeners implements ITestListener{  //hover classname and select add unimplemented methods to get all the methods of this interface to the class
+ <listener class-name="com.w2a.listeners.CustomListeners"/>
+  in listener.java add
+	  Reporter.log..logs in ontestfailure(){//to get dscfeenshots on failure of tests--to check these make a test fail- assert.fail("a failed test")
+	  add logs in ontestsuccess()
+	 ----------------------------------------
+
+dataprovider with hashtable -- changes in the code 
+no dataprovider name just the getmethod name only
+
+//data from excelsheet to dataprovider storig to hashtable then to method parameters as hashtable
+//data from excelsheet to dataprovider then to method parameters and directly accessing - no hashtable - variabls as parameters
+//		driver.findElement(By.cssSelector(OR.getProperty("addCustBtn_CSS"))).click(); // OR.getProperty("addCustBtn_CSS") elementlocators are added in OR.properties file in src/test/resources/properties
+//	
+----------------------------------------------------------
+
+
+
+
+
+in baseclass add common functions to reuse in other testclasses
+	public void click(String locator) {
+	public void type(String locator, String value) {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+=====================================================
+
+added new testcase- addcustomeraccount
+dataprovider common for 2 tests
+dataprovider name - dp
+changes in code- Method m for methods in classes
+-0--------------------------------------------------
+
+
 l12
 cpaturescreenshot in TestUtil.java extends base class
 scrrenshots in>> targets/surefirereports/html/...

@@ -24,7 +24,8 @@ public class TC2AddCustomer extends BaseClass{
 		
 	public void TC2addCustomer(Hashtable<String,String> data) { //store the data as (key,value)pair - (firstname,isha) (lastname,.....
 				
-//		driver.findElement(By.cssSelector(OR.getProperty("addCustBtn_CSS"))).click();
+		 //data from excelsheet to dataprovider then to method parameters and directly accessing
+//		driver.findElement(By.cssSelector(OR.getProperty("addCustBtn_CSS"))).click(); // OR.getProperty("addCustBtn_CSS") elementlocators are added in OR.properties file in src/test/resources/properties
 //		driver.findElement(By.cssSelector(OR.getProperty("firstname_CSS"))).sendKeys(fName);
 //		driver.findElement(By.xpath(OR.getProperty("lastname_XPATH"))).sendKeys(lName);
 //		driver.findElement(By.cssSelector(OR.getProperty("postcode_CSS"))).sendKeys(postCode);
@@ -35,7 +36,7 @@ public class TC2AddCustomer extends BaseClass{
 		 * Alert alert = wait.until(ExpectedConditions.alertIsPresent());//explcit wait
 		 * Assert.assertTrue(alert.getText().contains(alertText)); alert.accept();
 		 */
-		
+		////data from excelsheet to dataprovider storig to hashtable then to method parameters as hashtable
 		driver.findElement(By.cssSelector(OR.getProperty("addCustBtn_CSS"))).click();
 		driver.findElement(By.cssSelector(OR.getProperty("firstname_CSS"))).sendKeys(data.get("firstname")); //testdata.xlsx titles> firstname
 		driver.findElement(By.xpath(OR.getProperty("lastname_XPATH"))).sendKeys(data.get("lastname"));
