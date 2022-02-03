@@ -25,7 +25,7 @@ public class TC2AddCustomer extends BaseClass{
 		
 	//public void TC2addCustomer(String fName, String lName, String postCode, String alertText) {//pass no of columns in testdata.xls as parameters 
 		
-	public void TC2addCustomer(Hashtable<String,String> data) throws InterruptedException { //store the data as (key,value)pair - (firstname,isha) (lastname,.....
+	public void tc2AddCustomer(Hashtable<String,String> data) throws InterruptedException { //store the data as (key,value)pair - (firstname,isha) (lastname,.....
 				//addCustomerTest
 		
 		click("addCustBtn_CSS");
@@ -40,9 +40,10 @@ public class TC2AddCustomer extends BaseClass{
 		//msg in alert box - alert ref of type Alert Class
 		Alert alert = wait.until(ExpectedConditions.alertIsPresent());//explcit wait
 		Assert.assertTrue(alert.getText().contains(data.get("alerttext")));
+		Thread.sleep(2000);
 		alert.accept();
 		
-		Thread.sleep(2000);
+		
 		
 		
 //////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -85,8 +86,8 @@ public class TC2AddCustomer extends BaseClass{
 	 *  //DIDNT WORK THIS PART
 	 * @DataProvider(name="dp") public Object[][] getData(Method m) {
 	 * 
-	 * String sheetName = m.getName(); //"AddCustomerTest - same as Classname" int
-	 * rows = excel.getRowCount(sheetName); int cols =
+	 * String sheetName = m.getName(); //"AddCustomerTest - same as Classname" TC2AddCustomer
+	 *  int	 * rows = excel.getRowCount(sheetName); int cols =
 	 * excel.getColumnCount(sheetName);
 	 * 
 	 * Object[][] data = new Object[rows - 1][1];

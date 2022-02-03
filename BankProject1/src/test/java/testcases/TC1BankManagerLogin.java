@@ -15,7 +15,7 @@ public class TC1BankManagerLogin extends BaseClass{
 //	public class TC1Login extends BaseClass{
 	
 	@Test
-	public void loginAsBankManager() throws InterruptedException {
+	public void tc1BankManagerLogin() throws InterruptedException {
 		
 		 Thread.sleep(2000);
 		log.debug("Inside BankMangerLogin "); //in logs folder - log4j

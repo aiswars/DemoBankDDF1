@@ -64,7 +64,7 @@ public class TestUtil extends BaseClass {
 
 	}
 	
-	
+	//runmode- to control the tests to be run or not - through excel
 	public static boolean isTestRunnable(String testName, ExcelReader excel){
 		
 		String sheetName="test_suite";
@@ -73,7 +73,7 @@ public class TestUtil extends BaseClass {
 		
 		for(int rNum=2; rNum<=rows; rNum++){
 			
-			String testCase = excel.getCellData(sheetName, "TCID", rNum);
+			String testCase = excel.getCellData(sheetName, "TCID", rNum); //TCID-column name in excel sheet or give ColNum
 			
 			if(testCase.equalsIgnoreCase(testName)){
 				

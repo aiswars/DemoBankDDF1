@@ -11,14 +11,23 @@
      
     
 </listeners>
-
- <!-- <test thread-count="5" name="Test">-->
-  <test name="Test">
-    <classes>
-      <class name="testcases.TC1BankManagerLogin"/>  <!--  do the chnages // the classnames are changed-->
- <class name="testcases.TC2AddCustomer"/>
- 
-  <class name="testcases.TC3OpenAccount"/>
-    </classes>
-  </test> <!-- Test -->
+	<test name="Bank Manager Login Test">
+		<classes>
+			<class name="testcases.TC1BankManagerLogin" />
+		</classes>
+	</test> <!-- Test -->
+	
+	
+	<test name="Add Customer Test">
+		<classes>
+			<class name="testcases.TC2AddCustomer" />
+		</classes>
+	</test> <!-- Test -->
+	
+		<test name="Open Account Test">
+		<classes>
+			<class name="testcases.TC3OpenAccount" />
+		</classes>
+	</test> <!-- Test -->
+	
 </suite> <!-- Suite -->

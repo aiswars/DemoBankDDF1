@@ -292,8 +292,26 @@ changes in code- Method m for methods in classes
 	try run maven
 -0--------------------------------------------------
 
+Adding Runmodes lecture 17
 
+RunModes- to control the tests to run by datadriven -excel
+RunModes Y/N to select the testcases to run or not- by adding a new sheet in excel for this
+testname sin one column and one column for runmode with  Y/N
+and handle this in listeners.javaclass - onTestSatart()-add code 
+sheetnames - same as classnames
+as per application third test usrname should feom the drop down - already added user name
+	a utility in TestUtil.java for this - isTestRunnable()
 	Run As testngSuite-testng.xml
+	
+	
+	lecture 17 .. 3rd testcase didnt execute
+	
+	
+	
+	
+	
+	
+	
 	Run As testngSuite-testng.xml
 	
 	

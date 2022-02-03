@@ -14,6 +14,7 @@ import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 import org.testng.Reporter;
+import org.testng.SkipException;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
@@ -25,6 +26,7 @@ import com.aventstack.extentreports.markuputils.MarkupHelper;
 
 
 import base.BaseClass;
+import utilities.TestUtil;
 //add this CustomListeners1.java in <listeners> tag in testng.xml file
 public class CustomListeners extends BaseClass implements ITestListener,ISuiteListener {
 
@@ -37,7 +39,10 @@ public class CustomListeners extends BaseClass implements ITestListener,ISuiteLi
 
 	public void onTestStart(ITestResult result) {
 
-	
+	test = rep.startTest(arg0.getName().toUpperCase());//copied video
+	if(!TestUtil.isTestRunnable(fileName, excel)) {
+		throw new SkipException("Skipping the testcase-+ "arg0.getName().toUpperCase() + "  - Runmode is NO");
+	} //copied code
 		ExtentTest test = extent.createTest(result.getTestClass().getName()+"     @TestCase : "+result.getMethod().getMethodName());
       testReport.set(test);
         
