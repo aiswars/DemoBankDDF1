@@ -9,6 +9,7 @@ import java.util.Hashtable;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebElement;
 import org.testng.annotations.DataProvider;
 
 
@@ -22,19 +23,39 @@ public class TestUtil extends BaseClass {
 
 	public static void captureScreenshot() throws IOException {
 
-		File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-
+		File sourceFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+		System.out.println(sourceFile);
 		Date d = new Date();
 		//screenshotName = "error";
 		//Report.log "\\target\\surefire-reports\\html\\" + screenshotName));//the screenshot for all the failed tests get overwritten as the name is hardcoded, hence use timestamp
 		screenshotName = d.toString().replace(":", "_").replace(" ", "_") + ".jpg";//screenshot with the timestamp
-
-		FileUtils.copyFile(scrFile,
-				new File(System.getProperty("user.dir") + "\\target\\surefire-reports\\html\\" + screenshotName));
-		FileUtils.copyFile(scrFile,
-				new File(".\\reports\\" + screenshotName));
-
+		System.out.println(screenshotName);
+		FileUtils.copyFile(sourceFile,	new File(System.getProperty("user.dir") + "\\sshots" + screenshotName));
+		
+		FileUtils.copyFile(sourceFile,	new File(System.getProperty("user.dir") + "\\target\\surefire-reports\\html\\" + screenshotName));
+		FileUtils.copyFile(sourceFile,	new File(".\\reports\\" + screenshotName));
+	//	FileUtils.copyFile(scrFile, new File(System.getProperty("user.dir")+ "/target/surefire-reports/html/"+screenshotName));
 	}
+	
+	
+	
+//below code >> SAME CODE - AS ABOVE>> not required for this project - its from the latest updates extentreports -extentManager-ExtentListeners
+	public static void captureElementScreenshot(WebElement element) throws IOException {
+		
+		Date d = new Date();
+		String fileName = d.toString().replace(":", "_").replace(" ", "_")+".jpg";
+
+		
+		
+		File screeshot = ((TakesScreenshot) element).getScreenshotAs(OutputType.FILE);
+		FileUtils.copyFile(screeshot, new File(".//screenshot//"+"Element_"+fileName));
+	}
+
+ 
+	
+	
+	
+	
 
 	@DataProvider(name="dp")
 	public Object[][] getData(Method m) {

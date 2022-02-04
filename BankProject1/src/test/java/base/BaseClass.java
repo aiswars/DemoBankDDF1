@@ -3,6 +3,7 @@ package base;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.time.Duration;
 import java.util.Date;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
@@ -22,14 +23,18 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import org.testng.Assert;
+import org.testng.Reporter;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 
+import com.aventstack.extentreports.MediaEntityBuilder;
 import com.aventstack.extentreports.Status;
 
-
 import listeners.ExtentListeners;
-import utilities.ExcelReader;;
+import utilities.ExcelReader;
+import utilities.TestUtil;;
 
 //http://www.way2automation.com/angularjs-protractor/banking/#/login
 public class BaseClass {
@@ -171,10 +176,9 @@ public class BaseClass {
 
 			// driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
 			// driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-			// driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(Long.parseLong(config.getProperty("implicit.wait"))));//implicit.wait
+			 driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(Long.parseLong(config.getProperty("implicit.wait"))));//implicit.wait
 			// from config.properties
-			driver.manage().timeouts().implicitlyWait(Long.parseLong(config.getProperty("implicit.wait")),
-					TimeUnit.SECONDS);
+			//driver.manage().timeouts().implicitlyWait(Long.parseLong(config.getProperty("implicit.wait")),TimeUnit.SECONDS);
 			wait = new WebDriverWait(driver, 5);// explicitwait
 
 		} // if (driver == null) {
@@ -245,6 +249,40 @@ public class BaseClass {
 
 	}
 
+	
+	//to verify anything use this below method like verify title-LIKE SOFTASSERTONS - not by haRD assertion
+		//without using testng assertions
+//to verifyEquals eAssert.assertEquals(actual, expected);
+
+	public static void verifyEquals(String expected, String actual) throws IOException {
+
+		try {
+
+			Assert.assertEquals(actual, expected);
+
+		} catch (Throwable t) {
+
+			TestUtil.captureScreenshot();
+			// ReportNG
+			Reporter.log("<br>" + "Verification failure : " + t.getMessage() + "<br>");
+			Reporter.log("<a target=\"_blank\" href=" + TestUtil.screenshotName + "><img src=" + TestUtil.screenshotName
+					+ " height=200 width=200></img></a>");
+			Reporter.log("<br>");
+			Reporter.log("<br>");
+			// Extent Reports
+			ExtentListeners.testReport.get().log(Status.FAIL, " Verification failed with exception : " + t.getMessage());
+			ExtentListeners.testReport.get().fail("<b>" + "<font color=" + "red>" + "Screenshot of failure" + "</font>" + "</b>",
+					MediaEntityBuilder.createScreenCaptureFromPath(TestUtil.screenshotName)
+					.build());
+//arg0.getName().toUpperCase()  >>t.getMessage())
+			//test.log(LogStatus.FAIL, test.addScreenCapture(TestUtil.screenshotName)); //customListeners.java
+		}
+
+	}
+	
+	
+	
+	
 	@AfterSuite
 	public void tearDown() {
 		if (driver != null) {

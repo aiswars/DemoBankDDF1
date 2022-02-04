@@ -223,6 +223,7 @@ listners.java in listeners package
 
 in listener.java first give  implements ITestListener interface
 public class CustomListeners implements ITestListener{  //hover classname and select add unimplemented methods to get all the methods of this interface to the class
+ or project rightclick-source > overide methods 
  <listener class-name="com.w2a.listeners.CustomListeners"/>
   in listener.java add
 	  Reporter.log..logs in ontestfailure(){//to get dscfeenshots on failure of tests--to check these make a test fail- assert.fail("a failed test")
@@ -335,10 +336,17 @@ as per application third test usrname should feom the drop down - already added 
 	Setting up Runmodes testdata for parametrization- along with users data in first testcase data-first sheet excel sheet
 	add one more column for runmode in first sheet and update code in TC2Addcustomer.java
 		for 3rd testcase tc3OpenAccount make sure the added user's name is selected in the excel sheet
+		//if runmode is N in testdata excelsheet that test will be executed - 2nd row  in excel sheet
+
 	Run As testngSuite-testng.xml testng2Proj1.xml
 	
 	
 	========================================================================
+	
+	
+	run as maven test - worked the application gets executed!!
+	pom.xml updated with the latest dependencies.
+	====================================================================
 	
 	Jenkins-
 	---------------
@@ -355,4 +363,53 @@ as per application third test usrname should feom the drop down - already added 
 	open new item> give projects pom.xml location- open the projrct in eclipse /select pom.xml- alt enter
 	build
 	go back to dashboard
+	
+	
+	
+	
+	
+	=============================================================================================
+	
+	in base class added VerifyEquals method to validate anything like ttitle check- instead of hard assertions use this method like softassertion -without using testng assertions
+	//to make a test fail
+  	  Assert.fail("make a test fail - not successful");// to make a test fail to check listeners-onTestFailure-screenshot
+        System.out.println("to make a test fail"); //this wont gets executed as assertion failed above line- control goes to next @test
+   		
+	
+	
+	
+	
+	
+	
+	
+=====================================
+
+for the dependecncies - always got their officl website and search for log4j maven dependency then got to the official website - instead of in mvnrepo and seaech one by one 
+
+to make pom.xml know about log4j 
+ to make pom.xml know about files in resources folder - or the path given in <directory>
+ that way pom.xml know about log4j
+ <build>
+   <resources>
+        <resource>
+            <directory>src/main/java/resources</directory>
+            <filtering>true</filtering> 
+        </resource>
+    </resources>
+    
+    or user propertyConfigurator or domCOnfigurator in codeS	
+	
+	
+in tesngxml file >> give each testcasejavaclass <class> in each <test>	else if 100 testcase all will be in one <test> and if driver.quit in aftertest then the opened browsers for 100 tests will be closed only after the test.
+so its beter to be in multiple tests>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	

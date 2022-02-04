@@ -44,20 +44,24 @@ public class ExtentManager {
 	        return extent;
 	    }
 
-	    
-		public static void captureScreenshot() throws IOException {
-			
-			Date d = new Date();
-			 fileName = d.toString().replace(":", "_").replace(" ", "_")+".jpg";
-
-			
-			
-			//File screeshot = ((TakesScreenshot)  BaseTest.driver).getScreenshotAs(OutputType.FILE);
-			 File screeshot = ((TakesScreenshot)  BaseClass.driver).getScreenshotAs(OutputType.FILE);//import base.BaseClass;
-		}
+	    //in testUtil.java
+		/*
+		 * public static void captureScreenshot() throws IOException {
+		 * 
+		 * Date d = new Date(); 
+		 * fileName = d.toString().replace(":", "_").replace(" ",
+		 * "_")+".jpg";
+		 * 
+		 * 
+		 * 
+		 * //File screeshot = ((TakesScreenshot)
+		 * BaseTest.driver).getScreenshotAs(OutputType.FILE); File screeshot =
+		 * ((TakesScreenshot)
+		 * BaseClass.driver).getScreenshotAs(OutputType.FILE);//import base.BaseClass; }
+		 */
 		
 		
-
+//below code >> SAME CODE - AS ABOVE>> not required for this project - its from the latest updates extentreports -extentManager-ExtentListeners
 		public static void captureElementScreenshot(WebElement element) throws IOException {
 			
 			Date d = new Date();

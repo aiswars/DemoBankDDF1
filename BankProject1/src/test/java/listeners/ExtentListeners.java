@@ -32,13 +32,16 @@ public class ExtentListeners  extends BaseClass implements ITestListener, ISuite
 
 	private static ExtentReports extent = ExtentManager
 			.createInstance(".\\reports\\" + fileName);
-
 	public static ExtentTest test;
-	
 	public static ThreadLocal<ExtentTest> testReport = new ThreadLocal<ExtentTest>();
+	
+	
+	
 	
 	//worked code - onTestStart
 	 public void onTestStart(ITestResult result) {
+		 
+		
 		 
 	  test = extent.createTest(result.getTestClass().getName() + "     @TestCase : " + result.getMethod().getMethodName());
 	 // ExtentTest test = extent.createTest(result.getTestClass().getName()+"     @TestCase : "+result.getMethod().getMethodName()); 
@@ -94,17 +97,22 @@ public class ExtentListeners  extends BaseClass implements ITestListener, ISuite
 
 		///test.fail(result.getThrowable().getMessage());
 		try {
-			ExtentManager.captureScreenshot(); //ExtentManager.java class in listeners package
+			//ExtentManager.captureScreenshot(); //ExtentManager.java class in listeners package-- captureScreenshotin TestUtil.java
+			TestUtil.captureScreenshot();
+		
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		String methodName=result.getMethod().getMethodName();
 		String logText="<b>"+"TEST CASE:- "+ methodName.toUpperCase()+ " FAILED"+"</b>";		
-	
+		
+		//String failedTestMethodName = result.getMethod().getMethodName();//added newline
 	
 
-		test.fail("<b><font color=red>" + "Screenshot of failure" + "</font></b><br>",MediaEntityBuilder.createScreenCaptureFromPath(ExtentManager.fileName)
+	//	test.fail("<b><font color=red>" + "Screenshot of failure" + "</font></b><br>",MediaEntityBuilder.createScreenCaptureFromPath(ExtentManager.fileName).build());
+
+		test.fail("<b><font color=red>" + "Screenshot of failure" + "</font></b><br>",MediaEntityBuilder.createScreenCaptureFromPath(TestUtil.screenshotName)
 				.build());
 	
 		

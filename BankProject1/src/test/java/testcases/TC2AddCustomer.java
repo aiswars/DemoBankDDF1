@@ -32,7 +32,7 @@ public class TC2AddCustomer extends BaseClass{
 
 		if(!data.get("runmode").equals("Y")){
 			
-			throw new SkipException("Skipping the test case as the Run mode for data set is NO");
+			throw new SkipException("Skipping the test case as the Run mode for data set is NO"); //if runmode is N in testdata excelsheet that test will be executed - 2nd row  in excel sheet
 		}
 		
 		
