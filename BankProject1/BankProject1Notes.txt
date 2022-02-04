@@ -211,7 +211,7 @@ add the below properties in pom.xml file add this outside your <dependencies> ta
 </properties>
 -------------------------------------------------------------------------------------	
 Adding listeners
-	1. create class Customlistners.java in listeners package
+	1. create class Customlistners.java in listeners package >>>>>>>> extentListeners.java
     2.add Customlistners.javaclass in <listners> tag in testng.xml file
 	
 listners.java in listeners package
@@ -238,6 +238,10 @@ no dataprovider name just the getmethod name only
 //data from excelsheet to dataprovider then to method parameters and directly accessing - no hashtable - variabls as parameters
 //		driver.findElement(By.cssSelector(OR.getProperty("addCustBtn_CSS"))).click(); // OR.getProperty("addCustBtn_CSS") elementlocators are added in OR.properties file in src/test/resources/properties
 //	
+
+Object[][] data = new Object[rows - 1][1]; //col is 1 as Hashtable is used here- always the column is 1-as the method tc2AddCustomer(Hashtable<String,String> data parameter
+		//always the column is 1-as the method tc2AddCustomer(Hashtable<String,String> data) is keeping only one parameter- title in the excel sheet and its value- key,value- so columns are not n number
+		
 ----------------------------------------------------------
 
 
@@ -252,7 +256,7 @@ l14 extent reports
  extentmangaer.java class file
 configuration fiel -reportsconfig.xml in src/test/resources/extentconfig folder	
 	extentmanager.java for the extentreports
-	
+	extentMangaer & extentListeners is the working.
 	
 	1.extentMangaer and listener.javaclass in one package-extentlisteners package project8
 	2. extentmanger for repeots, screenshots
@@ -332,5 +336,35 @@ as per application third test usrname should feom the drop down - already added 
 	add one more column for runmode in first sheet and update code in TC2Addcustomer.java
 		for 3rd testcase tc3OpenAccount make sure the added user's name is selected in the excel sheet
 	Run As testngSuite-testng.xml testng2Proj1.xml
+	
+	
+	========================================================================
+	
+	Jenkins-
+	---------------
+	
+	download jenkins.war file from jenkins.io
+	from that file saved location - type cmd - to open command prompt for that path
+	give java -jar jenkins.war ENTER
+	jenkins start to install. wait for some meinutes untill the messgae jenkins is fully up and running!!
+	open the browser amd give localhost:8080
+	jenkins will be opened - give the secretkey which is generated and saved in the users...location./.jenkins/secrest/c
+	read the messages and proceed!!
+	once everything is ready 
+	manage jenkins> configure> give jdk path and maven home path if options are there, else
+	open new item> give projects pom.xml location- open the projrct in eclipse /select pom.xml- alt enter
+	build
+	go back to dashboard
+	
+	
+	pom.xml updated!! with the latest dependencies and added properties source and target 1.8 for the error source 5 is not sppoertred.....
+	Save the pom.xml
+	Refresh project and update project
+	Rightclick project >> maven >> Update Project
+	Run As Maven Clean- BUILD SUCCESS
+	RUN AS MAven test - no errors - application gets executed!!
+	
+	
+	
 	
 	
