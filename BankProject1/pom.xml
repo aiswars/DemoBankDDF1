@@ -104,6 +104,21 @@
 			</plugins>
 
 
+<!-- 
+  //if logs are not generating through maven test
+ 
+<testResources>
+<testResource>
+<directory>src/test/....</directory>
+<includes>
+<include> log4j.properties </include>
+</includes>
+</testResource>
+</testResources>
+
+-->
+		
+		
 		</build>
   
   

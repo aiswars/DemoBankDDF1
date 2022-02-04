@@ -17,10 +17,24 @@ public class TC1BankManagerLogin extends BaseClass{
 	@Test
 	public void tc1BankManagerLogin() throws InterruptedException {
 		
+		
 		 Thread.sleep(2000);
-		log.debug("Inside BankMangerLogin "); //in logs folder - log4j
+	//	 Assert.assertEquals("abc","xyz"); //to check the title-sample
+	try {
+		Assert.assertEquals("abc","xyz"); //to check the title-sample
+		System.out.println("after assertion-titlec check"); //this wont execute if assertion fails-catch gets executed but rest of the test gets terminated. control goes to next testcase/@test
+//so use soft assertions- this will report the error also  - to continue the testcsse
+	}catch(Throwable t) {
+		System.out.println("Assert.assertEquals(abc,xyz) failed -title check-inside catch");
+	}
+		 
+	System.out.println("Assert.assertEquals(abc,xyz) failed sample -title check-outside catch");//this wont gets executes if assertion fails
+	//so use soft assertions- to continue this test
+	log.debug("Inside BankMangerLogin "); //in logs folder - log4j
+		log.info("Inside BankMangerLogin "); //why log.debug is not working??
 		click("bmlBtn_CSS"); //driver.findElement(By.cssSelector(OR.getProperty("bmlBtn_CSS"))).click();
-			
+		System.out.println("Assert.assertEquals(abc,xyz) failed- bmlBtn_CSS is clicked title check-outside catch");//this wont gets executes if assertion fails
+		
      // Assert.assertTrue(false, null);
 		 Assert.assertTrue(isElementPresent(By.cssSelector(OR.getProperty("addCustBtn_CSS"))),"Login not successful");
 	// Assert.assertTrue(isElementPresent(By.cssSelector(OR.getProperty("addCustBtn_CSS"))));

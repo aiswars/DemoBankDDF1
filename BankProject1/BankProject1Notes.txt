@@ -356,15 +356,3 @@ as per application third test usrname should feom the drop down - already added 
 	build
 	go back to dashboard
 	
-	
-	pom.xml updated!! with the latest dependencies and added properties source and target 1.8 for the error source 5 is not sppoertred.....
-	Save the pom.xml
-	Refresh project and update project
-	Rightclick project >> maven >> Update Project
-	Run As Maven Clean- BUILD SUCCESS
-	RUN AS MAven test - no errors - application gets executed!!
-	
-	
-	
-	
-	
