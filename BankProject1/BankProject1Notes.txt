@@ -1,7 +1,8 @@
 BankProject1notes
 -------------------------
 2/22/2022
-
+DataDrivenframework
+-------------------------
 
 1.	Pom.xml dependencies
 2.	Src/tets/java/ testcases, utitlities ,base,  rough, listeners
@@ -18,6 +19,18 @@ BankProject1notes
 create new> file>> application.log and selenium.log in src/test/resources/logs folder
   lect5 check the notes on paper for adding config.properties, OR.properties files
   
+  config.properties, OR.properties files
+  -------------------------------------
+  to store element locaators a properties file or json file or xml file can be used.
+  in this project properties file ia used - OR.properties
+   config.properties - to store projrct relates common global variables like siteurl, browsername---
+   
+   json file or xml file handling in section5 lecture 68,69 - pracrtice this
+  ------------------------------------------------
+   testdata in excel file
+  
+  
+  ---------------------------------------------
 6.in base class add	SetUp >> browser invoking  // properties file reading
 1.	public class TestProperties {
 2.	Getting browser name from config property file
@@ -199,7 +212,7 @@ htmlreport>> plain text>>to view as html set a flag reportng.escape-output to fa
 	Also make sure the testngxml file name and path is correct in 	<suiteXmlFile>src/test/resources/runner/testngProj1.xml</suiteXmlFile>
 	  if no surefireplugin in testngxml file maven execure the tests with 'test' as suffix/prefix in the name no sequenece
 	  check notes
-	  mvn clean delete the target folder itself
+	  mvn clean - reports are generated inside the target folder - ?? delete the target folder itself ???
 	  repeorts will be in target>surefirerepeorts>index.html (same as testng test-output/html/index.html reports this is also by testng  but the execution is through maven so in surefirereports)
 	mvn test>> error - Source option 5 is no longer supported. Use 7 or later.
 [ERROR] Target option 5 is no longer supported. Use 7 or later.
@@ -303,7 +316,7 @@ testng2Proj1.xml
 Setting up Runmodes - in new excel sheet
 Adding Runmodes lecture 17
 
-RunModes- to control the tests to run by datadriven -excel
+RunModes- to control the tests to run by datadriven -excel - to  skip any testcase make N in excel sheet for that test 
 RunModes Y/N to select the testcases to run or not- by adding a new sheet in excel for this
 testname sin one column and one column for runmode with  Y/N
 and handle this in listeners.javaclass - onTestSatart()-add code 
@@ -350,7 +363,7 @@ as per application third test usrname should feom the drop down - already added 
 	
 	Jenkins-
 	---------------
-	
+	to run thorugh jenkins the project need to be run as maven test- first run through maven successfully-- DIID THAT AND BUILD ON JENKINS :)
 	download jenkins.war file from jenkins.io
 	from that file saved location - type cmd - to open command prompt for that path
 	give java -jar jenkins.war ENTER
@@ -403,8 +416,13 @@ to make pom.xml know about log4j
 in tesngxml file >> give each testcasejavaclass <class> in each <test>	else if 100 testcase all will be in one <test> and if driver.quit in aftertest then the opened browsers for 100 tests will be closed only after the test.
 so its beter to be in multiple tests>
 	
-	
-	
+	for fileutils javapackage need below dependecny too --- screenshot
+	<!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
+<dependency>
+    <groupId>commons-io</groupId>
+    <artifactId>commons-io</artifactId>
+    <version>2.6</version>
+</dependency>
 	
 	
 	

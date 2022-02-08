@@ -76,7 +76,8 @@ public class BaseClass {
 		log.info("log file !!!");
 
 		// driver initialization
-		if (driver == null) {
+		if (driver == null) {//driver is null at the beginning of execution
+			
 
 			// config.properties file reading
 			try {
@@ -173,7 +174,9 @@ public class BaseClass {
 			driver.get(config.getProperty("testsiteurl"));
 			log.debug("Navigated to the url !!!");
 			driver.manage().window().maximize();
-
+			//implcit wait time from config.properties. 
+			//implcit wait time from config.properties- config.getProperty.implcit wait time from config.properties.  implcitwait takes only integers - so conversion Integer.parseInt
+			
 			// driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
 			// driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 			 driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(Long.parseLong(config.getProperty("implicit.wait"))));//implicit.wait

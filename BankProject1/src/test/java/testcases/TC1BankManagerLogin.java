@@ -90,7 +90,11 @@ public class TC1BankManagerLogin extends BaseClass{
   		
   	    Reporter.log("loginAsBankManager-Login successfully executed");
   	    
-  	    
+
+		//Assert.fail("Login not successful");//to makke a test fail to get screenshot-ontestfailure() in listenersjava
+		
+		//capture screenshot in basetest
+		
   	 //to make a test fail
   	  Assert.fail("make a test fail - not successful");// to make a test fail to check listeners-onTestFailure-screenshot
         System.out.println("to make a test fail"); //this wont gets executed as assertion failed above line- control goes to next @test

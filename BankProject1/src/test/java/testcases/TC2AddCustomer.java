@@ -18,6 +18,12 @@ import utilities.TestUtil;
 
 public class TC2AddCustomer extends BaseClass{
 //BankManager>> AddCustomer button
+	
+	//AddCustomerTest classname - give same name to excel sheetname-AddCustomerTest
+		//@Test(dataProvider = "getData")
+		//3 inputs to textboxes on AddCustomer page - so 3 parameters- from DataProvider
+		//public void addCustomer(String firstName, Stirng LastName, Sring postcode)
+		
 
 	//@Test(dataProvider = "dp")   //ERROR ??
 	@Test(dataProviderClass = TestUtil.class, dataProvider = "dp")
